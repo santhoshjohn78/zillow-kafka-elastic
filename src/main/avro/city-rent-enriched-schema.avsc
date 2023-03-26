@@ -1,0 +1,126 @@
+{
+  "type": "record",
+  "name": "CityRentsEnriched",
+  "namespace": "com.ehss.model",
+  "fields": [
+    {
+      "name": "RegionID",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "SizeRank",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "RegionName",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "RegionType",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "StateName",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "State",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "Metro",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "CountyName",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "Population",
+      "type": [
+        "null",
+        "long"
+      ],
+      "default": null
+    },
+    {
+      "name": "Density",
+      "type": [
+        "null",
+        "double"
+      ],
+      "default": null
+    },
+    {
+      "name": "location",
+      "type": ["null",{
+        "type": "record",
+        "name": "Location",
+        "fields": [
+          {
+            "name": "lon",
+            "type": "double"
+          },
+          {
+            "name": "lat",
+            "type": "double"
+          }
+        ]
+      }]
+    },
+    {
+      "name": "rents",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "record",
+          "name": "Rent",
+          "fields": [
+            {
+              "name": "timestamp",
+              "type": "long"
+            },
+            {
+              "name": "monthlyRent",
+              "type": "double"
+            }
+          ]
+        }
+      }
+    }
+
+  ],
+  "connect.name": "com.github.jcustenborder.kafka.connect.model.Value"
+}

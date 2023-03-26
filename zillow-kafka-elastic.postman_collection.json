@@ -29,7 +29,41 @@
 			"name": "list schema",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.schemaregistry.v1+json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8081/schemas/ids/1/schema",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"schemas",
+						"ids",
+						"1",
+						"schema"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list schema Copy",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/vnd.schemaregistry.v1+json, application/vnd.schemaregistry+json, application/json",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "http://localhost:8081/subjects",
 					"protocol": "http",
@@ -62,7 +96,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n        \"connector.class\": \"com.github.jcustenborder.kafka.connect.spooldir.SpoolDirCsvSourceConnector\",\r\n        \"topic\": \"zillow_rent_data_input_01\",\r\n        \"input.path\": \"/data/zillow-input\",\r\n        \"finished.path\": \"/data/processed\",\r\n        \"error.path\": \"/data/error\",\r\n        \"input.file.pattern\": \".*\\\\.csv\",\r\n        \"csv.null.field.indicator\": \"BOTH\",\r\n        \"schema.generation.enabled\":\"true\",\r\n        \"schema.generation.key.fields\":\"RegionID\",\r\n        \"csv.first.row.as.header\":\"true\",\r\n        \"transforms\":\"castTypes\",\r\n        \"transforms.castTypes.type\":\"org.apache.kafka.connect.transforms.Cast$Value\",\r\n        \"transforms.castTypes.spec\":\"2015_03_31:float64,2015_04_30:float64,2015_05_31:float64,2015_06_30:float64,2015_07_31:float64,2015_08_31:float64,2015_09_30:float64,2015_10_31:float64,2015_11_30:float64,2015_12_31:float64,2016_01_31:float64,2016_02_29:float64,2016_03_31:float64,2016_04_30:float64,2016_05_31:float64,2016_06_30:float64,2016_07_31:float64,2016_08_31:float64,2016_09_30:float64,2016_10_31:float64,2016_11_30:float64,2016_12_31:float64,2017_01_31:float64,2017_02_28:float64,2017_03_31:float64,2017_04_30:float64,2017_05_31:float64,2017_06_30:float64,2017_07_31:float64,2017_08_31:float64,2017_09_30:float64,2017_10_31:float64,2017_11_30:float64,2017_12_31:float64,2018_01_31:float64,2018_02_28:float64,2018_03_31:float64,2018_04_30:float64,2018_05_31:float64,2018_06_30:float64,2018_07_31:float64,2018_08_31:float64,2018_09_30:float64,2018_10_31:float64,2018_11_30:float64,2018_12_31:float64,2019_01_31:float64,2019_02_28:float64,2019_03_31:float64,2019_04_30:float64,2019_05_31:float64,2019_06_30:float64,2019_07_31:float64,2019_08_31:float64,2019_09_30:float64,2019_10_31:float64,2019_11_30:float64,2019_12_31:float64,2020_01_31:float64,2020_02_29:float64,2020_03_31:float64,2020_04_30:float64,2020_05_31:float64,2020_06_30:float64,2020_07_31:float64,2020_08_31:float64,2020_09_30:float64,2020_10_31:float64,2020_11_30:float64,2020_12_31:float64,2021_01_31:float64,2021_02_28:float64,2021_03_31:float64,2021_04_30:float64,2021_05_31:float64,2021_06_30:float64,2021_07_31:float64,2021_08_31:float64,2021_09_30:float64,2021_10_31:float64,2021_11_30:float64,2021_12_31:float64,2022_01_31:float64,2022_02_28:float64,2022_03_31:float64,2022_04_30:float64,2022_05_31:float64,2022_06_30:float64,2022_07_31:float64,2022_08_31:float64,2022_09_30:float64,2022_10_31:float64,2022_11_30:float64,2022_12_31:float64,2023_01_31:float64,2023_02_28:float64\"\r\n}"
+					"raw": "{\r\n        \"connector.class\": \"com.github.jcustenborder.kafka.connect.spooldir.SpoolDirCsvSourceConnector\",\r\n        \"topic\": \"zillow_rent_data_input_01\",\r\n        \"input.path\": \"/data/zillow-input\",\r\n        \"finished.path\": \"/data/processed\",\r\n        \"error.path\": \"/data/error\",\r\n        \"input.file.pattern\": \".*\\\\.csv\",\r\n        \"csv.null.field.indicator\": \"BOTH\",\r\n        \"schema.generation.value.name\": \"com.ehss.model.ZillowCityRents\",\r\n        \"schema.generation.key.name\": \"RegionID\",\r\n        \"schema.generation.enabled\":\"true\",\r\n        \"schema.generation.key.fields\":\"RegionID\",\r\n        \"csv.first.row.as.header\":\"true\",\r\n        \"transforms\":\"castTypes\",\r\n        \"transforms.castTypes.type\":\"org.apache.kafka.connect.transforms.Cast$Value\",\r\n        \"transforms.castTypes.spec\":\"D_2015_03_31:float64,D_2015_04_30:float64,D_2015_05_31:float64,D_2015_06_30:float64,D_2015_07_31:float64,D_2015_08_31:float64,D_2015_09_30:float64,D_2015_10_31:float64,D_2015_11_30:float64,D_2015_12_31:float64,D_2016_01_31:float64,D_2016_02_29:float64,D_2016_03_31:float64,D_2016_04_30:float64,D_2016_05_31:float64,D_2016_06_30:float64,D_2016_07_31:float64,D_2016_08_31:float64,D_2016_09_30:float64,D_2016_10_31:float64,D_2016_11_30:float64,D_2016_12_31:float64,D_2017_01_31:float64,D_2017_02_28:float64,D_2017_03_31:float64,D_2017_04_30:float64,D_2017_05_31:float64,D_2017_06_30:float64,D_2017_07_31:float64,D_2017_08_31:float64,D_2017_09_30:float64,D_2017_10_31:float64,D_2017_11_30:float64,D_2017_12_31:float64,D_2018_01_31:float64,D_2018_02_28:float64,D_2018_03_31:float64,D_2018_04_30:float64,D_2018_05_31:float64,D_2018_06_30:float64,D_2018_07_31:float64,D_2018_08_31:float64,D_2018_09_30:float64,D_2018_10_31:float64,D_2018_11_30:float64,D_2018_12_31:float64,D_2019_01_31:float64,D_2019_02_28:float64,D_2019_03_31:float64,D_2019_04_30:float64,D_2019_05_31:float64,D_2019_06_30:float64,D_2019_07_31:float64,D_2019_08_31:float64,D_2019_09_30:float64,D_2019_10_31:float64,D_2019_11_30:float64,D_2019_12_31:float64,D_20D_20_01_31:float64,D_20D_20_02_29:float64,D_20D_20_03_31:float64,D_20D_20_04_30:float64,D_20D_20_05_31:float64,D_20D_20_06_30:float64,D_20D_20_07_31:float64,D_20D_20_08_31:float64,D_20D_20_09_30:float64,D_20D_20_10_31:float64,D_20D_20_11_30:float64,D_20D_20_12_31:float64,D_2021_01_31:float64,D_2021_02_28:float64,D_2021_03_31:float64,D_2021_04_30:float64,D_2021_05_31:float64,D_2021_06_30:float64,D_2021_07_31:float64,D_2021_08_31:float64,D_2021_09_30:float64,D_2021_10_31:float64,D_2021_11_30:float64,D_2021_12_31:float64,D_2022_01_31:float64,D_2022_02_28:float64,D_2022_03_31:float64,D_2022_04_30:float64,D_2022_05_31:float64,D_2022_06_30:float64,D_2022_07_31:float64,D_2022_08_31:float64,D_2022_09_30:float64,D_2022_10_31:float64,D_2022_11_30:float64,D_2022_12_31:float64,D_2023_01_31:float64,D_2023_02_28:float64\"\r\n}"
 				},
 				"url": {
 					"raw": "http://localhost:8083/connectors/zillow-rent-csv-spooldir-01/config",
@@ -134,7 +168,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n        \"connector.class\": \"io.confluent.connect.elasticsearch.ElasticsearchSinkConnector\",\r\n        \"connection.url\": \"http://elasticsearch:9200\",\r\n        \"key.converter\": \"org.apache.kafka.connect.storage.StringConverter\",\r\n        \"value.converter\": \"io.confluent.connect.avro.AvroConverter\",\r\n        \"value.converter.schema.registry.url\": \"http://schema-registry:8081\",\r\n        \"topics\": \"zillow_rent_data_input_01\",\r\n        \"type.name\": \"_doc\",\r\n        \"key.ignore\": \"true\",\r\n        \"schema.ignore\": \"true\"\r\n}"
+					"raw": "{\r\n        \"connector.class\": \"io.confluent.connect.elasticsearch.ElasticsearchSinkConnector\",\r\n        \"connection.url\": \"http://elasticsearch:9200\",\r\n        \"key.converter\": \"org.apache.kafka.connect.storage.StringConverter\",\r\n        \"value.converter\": \"io.confluent.connect.avro.AvroConverter\",\r\n        \"value.converter.schema.registry.url\": \"http://schema-registry:8081\",\r\n        \"topics\": \"zillow_rent_enriched_data_out\",\r\n        \"type.name\": \"_doc\",\r\n        \"key.ignore\": \"true\",\r\n        \"schema.ignore\": \"true\"\r\n}"
 				},
 				"url": {
 					"raw": "http://localhost:8083/connectors/kafka-2-elasticsearch-sink-01/config",
